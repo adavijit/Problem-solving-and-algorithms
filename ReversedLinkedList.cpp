@@ -1,80 +1,70 @@
-#include<iostream>
-#include<cstdio>
-#include<cstdlib>
+/* HackerEarth link :
+https://www.hackerearth.com/practice/data-structures/linked-list/singly-linked-list/practice-problems/algorithm/reversed-linked-list-01b722df/
+*/
+#include <bits/stdc++.h>
 using namespace std;
-/*
- * Node Declaration
- */
-struct Node
-{
-    int data;
-    struct Node *next;
+struct Node {
+long long data;
+struct Node *next;
 };
-struct Node* head;
-void insert(int num)
-{
-    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
-    temp->data=num;
-    temp->next=head;
-    head= temp;
+struct Node* head = NULL;
+void insert(long long new_data) {
+struct Node* new_node = (struct Node*) malloc(sizeof(struct Node));
+new_node->data = new_data;
+new_node->next = head;
+head = new_node;
 }
-void operation()
+void display() {
+struct Node* ptr;
+ptr = head;
+while (ptr != NULL) {
+cout<< ptr->data <<" ";
+ptr = ptr->next;
+}
+}
+int main() {
+long long n,x,y,a;
+stack <long long>s;
+vector <long long>v;
+cin>>n;
+while(n--)
 {
-    struct Node* temp = head;
-    struct Node* temp2 = head;
-    while(temp!=NULL)
-    {
-        
-        while(temp2->data%2==0)
-        {
+cin>>x;
+insert(x);
+}
+struct Node* ptr;
+ptr = head;
+while (ptr != NULL) {
+y=ptr->data;
+ptr = ptr->next;
+if(y%2!=0){
+if(a>0)
+{
+for(int i=a-1;i>=0;i--)
+{
+s.push(v[i]);
+}
 
-        }
-    }
 }
-void reverse()
-{
-    struct Node *prev,*current,*next;
-    prev= NULL;
-    current = head;
-    while (current!=NULL)
-    {
-        if(current->data%2==0)
-        {
-        next = current->next;
-       current->next= prev;
-       prev = current;
-       current = next;
-        }
-        else{
-            current= current->next;
-        }
-    }
-    head = prev;
-    
+
+s.push(y);
+v.clear();
+a=0;
 }
-void print()
-{
-    struct Node* temp = head;
-    while (temp!=NULL)
-    {
-       printf("%d->",temp->data);
-       temp=temp->next;
-    }
-    
+else {
+a++;
+v.push_back(y);
 }
-int main()
+}
+for(int i=0;i<a;i++)
 {
-    int n;
-    cin >> n;
-    head=NULL;
-    for(int i=0;i<n;i++)
-    {
-        int x;
-        cin >> x;
-        insert(x);
-    }
-    reverse();
-    print();
-    
-    return 0;
+cout<<v[i]<<" ";
+}
+while(!s.empty())
+{
+cout<<s.top()<<" ";
+s.pop();
+}
+
+return 0;
 }
