@@ -7,11 +7,11 @@ struct Node{
 
 void insertEnd(struct Node **head,int data)
 {
-    int 
-    if(head==NULL)
-    {
+    struct Node *newNode = new 
+    // if(head==NULL)
+    // {
 
-    }
+    // }
 
 }
 int main()
