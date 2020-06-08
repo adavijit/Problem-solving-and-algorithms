@@ -26,7 +26,5 @@ int main()
     for(int i=0;i<=top;i++){
     cout<<c[i];
     }
-   
-    
     return 0;
 }
